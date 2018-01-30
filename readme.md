@@ -1,4 +1,4 @@
-# Michael's Useful Pico8 Scripts
+# Useful Pico8 Snippets
 A small collection of pico8 snippets that I feel may be useful to other developers.
 
 ## What's in here
