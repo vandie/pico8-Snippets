@@ -1,6 +1,9 @@
 pico-8 cartridge // http://www.pico-8.com
 version 15
 __lua__
+-- Grid builder
+-- Michael Van Der Velden
+
 -- g controls the size of the isometric gird panels. defualts to 20
 -- ox is the offset of the x axis. Is automattically decreased to avoid extra draw calls. defualts to 0
 -- oy is the offset of the y axis. Is automattically decreased to avoid extra draw calls. defualts to 0
@@ -21,7 +24,7 @@ function drawgrid(g,ox,oy,col,height,width)
    line(0,y*g-(oy%g),width,y*g-(oy%g),col)
  end
  --draw diagonal lines
- for x = -4, width/g + 2 do
+ for x = -6, width/g + 2 do
   line( (g*x)-(ox%g), -(oy%g), (g*x)-(ox%g)+(128*2), -(oy%g)+(128*2),col)
  end
 end
@@ -31,12 +34,16 @@ x = 0
 y = 0
 
 function _update()
- if btn(0,p-1) then x-=1 end
- if btn(1,p-1) then x+=1 end
- if btn(2,p-1) then y-=1 end
- if btn(3,p-1) then y+=1 end
+ if btn(0) then x-=1 end
+ if btn(1) then x+=1 end
+ if btn(2) then y-=1 end
+ if btn(3) then y+=1 end
 end
 
 function _draw()
- drawgrid(20,x,y)
+ cls()
+ drawgrid(20,x,y,2,128,128)
 end
+
+__gfx__
+__sfx__
